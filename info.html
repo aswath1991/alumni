@@ -1,0 +1,330 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Club: Current State Analysis & Data Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 700px; /* Slightly wider for presentation */
+            margin-left: auto; 
+            margin-right: auto; 
+            height: 400px; 
+            max-height: 450px; 
+        }
+        @media (max-width: 768px) {
+            .chart-container { height: 350px; }
+        }
+        .section-header { border-left: 6px solid #2563eb; padding-left: 1rem; margin-bottom: 2rem; }
+        .stat-value { font-weight: 900; color: #2563eb; }
+        .data-caption { background-color: #f1f5f9; padding: 1rem; border-radius: 0.5rem; font-size: 0.875rem; color: #475569; margin-top: 1rem; }
+    </style>
+</head>
+<body class="antialiased p-4 sm:p-8">
+
+    <main class="max-w-7xl mx-auto space-y-16">
+
+        <header class="text-center pb-8 border-b-2 border-slate-200">
+            <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 mb-4">ALUMNI CLUB: CURRENT STATE DATA ANALYSIS</h1>
+            <p class="text-xl text-slate-600 max-w-4xl mx-auto">
+                A detailed review of membership demographics, financial performance, and activity engagement for the 2024-25 period. 
+                Focus: Understanding the existing landscape to inform future strategy.
+            </p>
+        </header>
+
+        <section>
+            <div class="section-header">
+                <h2 class="text-3xl font-bold text-slate-800">1. The Member Profile: An Aging Base</h2>
+            </div>
+            <p class="text-lg text-slate-600 mb-8">The club's membership is heavily skewed towards senior demographics, presenting a significant future risk. The 'under 30' segment is negligible.</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Membership Distribution by Age Group (Years)</h3>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                    <div class="data-caption">
+                        <strong>Data Insight:</strong> The 65+ age group (882 members) is the dominant cohort, representing over **54%** of the total membership. The combined '< 40' group is less than **8%**.
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Membership Composition by Category</h3>
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                    <div class="data-caption">
+                        <strong>Data Insight:</strong> "Regular Members" constitute **65%** of the base. Critically, there are only **5** Corporate members, highlighting a massive untapped opportunity for outreach.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header" style="border-color: #db2777;">
+                <h2 class="text-3xl font-bold text-slate-800">2. Financial Performance: The Profit Dilemma</h2>
+            </div>
+            <p class="text-lg text-slate-600 mb-8">High-volume departments like Bar and Catering are underperforming significantly in terms of Net Income, being subsidized by subscription revenue.</p>
+
+            <div class="grid grid-cols-1 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Gross vs. Net Income by Department (₹ Lakhs)</h3>
+                    <div class="chart-container" style="max-width: 100%;">
+                        <div id="financePlotly"></div>
+                    </div>
+                    <div class="data-caption grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <strong class="text-red-600">Bar Reality:</strong>
+                            <br>Gross: <span class="stat-value">₹92.13 L</span>
+                            <br>Net: <span class="stat-value text-red-600">-₹7.45 L</span>
+                            <br><em>(Loss-making despite high volume)</em>
+                        </div>
+                        <div>
+                            <strong class="text-orange-600">Catering Margin:</strong>
+                            <br>Gross: <span class="stat-value">₹282.34 L</span>
+                            <br>Net: <span class="stat-value">₹12.98 L</span>
+                            <br><em>(Very low margin: ~4.6%)</em>
+                        </div>
+                        <div>
+                            <strong class="text-blue-600">Subscription Anchor:</strong>
+                            <br>Net: <span class="stat-value">₹56.55 L</span>
+                            <br><em>(Primary source of operational profit)</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header" style="border-color: #84cc16;">
+                <h2 class="text-3xl font-bold text-slate-800">3. Member Engagement & Activity Analysis</h2>
+            </div>
+            <p class="text-lg text-slate-600 mb-8">A significant portion of the membership is inactive ("Zero Spend"). Activity participation is heavily polarized by age.</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Member Engagement by Spending Tier (Last Period)</h3>
+                    <div class="chart-container">
+                        <canvas id="spendChart"></canvas>
+                    </div>
+                    <div class="data-caption">
+                        <strong>Data Insight:</strong> The single largest group is **"Zero Spend (Inactive)"** with 481 members (**~30%** of total). This represents a major engagement challenge.
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Sports Revenue Contribution (Share %)</h3>
+                    <div class="chart-container">
+                        <canvas id="sportsPie"></canvas>
+                    </div>
+                    <div class="data-caption">
+                        <strong>Data Insight:</strong> **Badminton** is the top sports revenue generator (₹10.47 L), followed by **Cards/Bridge** (₹6.86 L). Tennis contribution is minimal (₹0.37 L).
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-md lg:col-span-2">
+                    <h3 class="text-xl font-bold mb-4">Activity Participation by Age Demographic</h3>
+                    <div class="chart-container" style="max-width: 100%;">
+                        <canvas id="activityStack"></canvas>
+                    </div>
+                    <div class="data-caption">
+                        <strong>Data Insight:</strong> Clear age segregation exists. **Cards & Bridge** are almost exclusively played by the >65 demographic. **Badminton** is the only activity with significant participation from the <50 age group.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-slate-800 text-white p-8 rounded-2xl">
+            <h2 class="text-2xl font-bold mb-6">Summary & Key Recommendations</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-700 p-4 rounded-lg border-l-4 border-blue-500">
+                    <h4 class="font-bold mb-2">1. Demographics</h4>
+                    <p class="text-sm text-slate-300 mb-2">Critical aging skew (>65 dominant).</p>
+                    <p class="text-sm font-semibold text-blue-300">Rec: Launch targeted "Under 40" & Corporate membership drives.</p>
+                </div>
+                <div class="bg-slate-700 p-4 rounded-lg border-l-4 border-pink-500">
+                    <h4 class="font-bold mb-2">2. Financials</h4>
+                    <p class="text-sm text-slate-300 mb-2">Bar is loss-making; Catering has low margins.</p>
+                    <p class="text-sm font-semibold text-pink-300">Rec: Implement immediate price increases in Bar & Restaurant to align with costs.</p>
+                </div>
+                <div class="bg-slate-700 p-4 rounded-lg border-l-4 border-lime-500">
+                    <h4 class="font-bold mb-2">3. Engagement</h4>
+                    <p class="text-sm text-slate-300 mb-2">30% inactive; activities are age-siloed.</p>
+                    <p class="text-sm font-semibold text-lime-300">Rec: Introduce modern, social activities (e.g., Pickleball) to attract younger crowds.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- UTILITY FUNCTIONS ---
+        const wrapLabel = (str) => {
+            if (str.length <= 16) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= 16) {
+                    currentLine += " " + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        };
+
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    return Array.isArray(label) ? label.join(' ') : label;
+                }
+            }
+        };
+
+        Chart.defaults.font.family = 'Inter, sans-serif';
+        Chart.defaults.color = '#475569';
+
+        // --- DATA SETS ---
+        const ageLabels = ["< 30", "31-40", "41-50", "51-60", "61-65", "> 65"];
+        const ageData = [24, 98, 128, 287, 202, 882];
+
+        const categoryLabels = ["Corporate", "Life Member", "Regular Member"];
+        const categoryData = [5, 556, 1060];
+
+        const depts = ["Bar", "Catering", "Sports", "Chambers", "Subscription"];
+        const grossIncome = [92.13, 282.34, 28.92, 29.19, 56.55];
+        const netIncome = [-7.45, 12.98, 2.98, 12.25, 56.55];
+
+        const spendLabels = ["0 (Inactive)", "< 2.5k", "2.5k-5k", "5k-10k", "10k-25k", "25k-50k", "50k-1L", "1L-2L"];
+        const spendData = [481, 268, 227, 284, 242, 81, 26, 12];
+
+        const sportsRevenueLabels = ["Badminton", "Billiards", "Cards/Bridge", "Cricket", "Fitness", "Gym", "Tennis"];
+        const sportsRevenueData = [10.47, 1.86, 6.86, 4.52, 3.7, 1.14, 0.37];
+
+        const activityStackLabels = ["Badminton", "Tennis", "Cards/Bridge", "Billiards"];
+        const actUnder50 = [10, 4, 1, 0];
+        const act50to65 = [29, 12, 6, 0];
+        const actOver65 = [54, 2, 80, 12];
+
+        // --- CHART GENERATION ---
+
+        // Chart 1: Age Distribution (Bar)
+        new Chart(document.getElementById('ageChart').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ageLabels.map(wrapLabel),
+                datasets: [{
+                    label: 'Number of Members',
+                    data: ageData,
+                    backgroundColor: '#2563eb',
+                    borderRadius: 4,
+                    barPercentage: 0.6
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false }, tooltip: tooltipConfig },
+                scales: { y: { beginAtZero: true, grid: { color: '#e2e8f0' } }, x: { grid: { display: false } } }
+            }
+        });
+
+        // Chart 2: Categories (Doughnut)
+        new Chart(document.getElementById('categoryChart').getContext('2d'), {
+            type: 'doughnut',
+            data: {
+                labels: categoryLabels.map(wrapLabel),
+                datasets: [{
+                    data: categoryData,
+                    backgroundColor: ['#7c3aed', '#0d9488', '#2563eb'],
+                    borderWidth: 2, borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'right' }, tooltip: tooltipConfig },
+                cutout: '60%'
+            }
+        });
+
+        // Chart 3: Gross vs Net (Plotly Grouped Bar)
+        Plotly.newPlot('financePlotly', [
+            { x: depts, y: grossIncome, name: 'Gross Income', type: 'bar', marker: { color: '#2563eb' } },
+            { x: depts, y: netIncome, name: 'Net Income', type: 'bar', marker: { color: '#84cc16' } }
+        ], {
+            barmode: 'group', margin: { t: 20, b: 40, l: 40, r: 20 },
+            paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
+            legend: { orientation: 'h', y: 1.1 }, font: { family: 'Inter, sans-serif', color: '#475569' },
+            yaxis: { gridcolor: '#e2e8f0' }
+        }, { responsive: true, displayModeBar: false, renderer: 'canvas' });
+
+        // Chart 4: Spend Tiers (Horizontal Bar)
+        new Chart(document.getElementById('spendChart').getContext('2d'), {
+            type: 'bar', indexAxis: 'y',
+            data: {
+                labels: spendLabels.map(wrapLabel),
+                datasets: [{
+                    label: 'Member Count', data: spendData,
+                    backgroundColor: (ctx) => ctx.dataIndex === 0 ? '#db2777' : '#0d9488',
+                    borderRadius: 4, barPercentage: 0.7
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false }, tooltip: tooltipConfig },
+                scales: { x: { beginAtZero: true, grid: { color: '#e2e8f0' } }, y: { grid: { display: false } } }
+            }
+        });
+
+        // Chart 5: Sports Revenue (Pie)
+        new Chart(document.getElementById('sportsPie').getContext('2d'), {
+            type: 'pie',
+            data: {
+                labels: sportsRevenueLabels.map(wrapLabel),
+                datasets: [{
+                    data: sportsRevenueData,
+                    backgroundColor: ['#2563eb', '#64748b', '#db2777', '#84cc16', '#0d9488', '#f59e0b', '#ef4444'],
+                    borderWidth: 2, borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'right' }, tooltip: tooltipConfig }
+            }
+        });
+
+        // Chart 6: Activity Age Stack (Stacked Bar)
+        new Chart(document.getElementById('activityStack').getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: activityStackLabels.map(wrapLabel),
+                datasets: [
+                    { label: '< 50 Years', data: actUnder50, backgroundColor: '#84cc16' },
+                    { label: '50-65 Years', data: act50to65, backgroundColor: '#2563eb' },
+                    { label: '> 65 Years', data: actOver65, backgroundColor: '#db2777' }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'top' }, tooltip: tooltipConfig },
+                scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true, beginAtZero: true, grid: { color: '#e2e8f0' } } }
+            }
+        });
+    </script>
+</body>
+</html>
+```
