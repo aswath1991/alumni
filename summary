@@ -1,0 +1,447 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Club: Strategic Revitalization Plan - Board Pitch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #334155; scroll-behavior: smooth; }
+        .section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+        .chart-container { position: relative; height: 400px; width: 100%; }
+        .stat-card { @apply bg-white p-6 rounded-xl shadow-md border-l-4; }
+        h1, h2, h3, h4 { color: #1e293b; font-weight: 900; }
+        .accent-text { color: #1e40af; }
+        .alert-text { color: #dc2626; }
+        .sticky-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="sticky-nav fixed w-full z-50 shadow-sm border-b border-slate-200 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0">
+                    <span class="text-2xl font-black text-slate-900">Alumni Club <span class="accent-text">Strategy</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#executive-summary" class="font-semibold text-slate-600 hover:text-blue-700 transition">Summary</a>
+                    <a href="#the-crisis" class="font-semibold text-slate-600 hover:text-red-700 transition">The Crisis</a>
+                    <a href="#financial-reality" class="font-semibold text-slate-600 hover:text-blue-700 transition">Financials</a>
+                    <a href="#structural-flaw" class="font-semibold text-slate-600 hover:text-blue-700 transition">Membership Flaw</a>
+                    <a href="#recommendations" class="font-bold px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">Recommendations</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-32 pb-20 bg-white text-center px-4 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                The Defining Moment for Our <span class="accent-text">Alumni Club</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+                Data-driven evidence reveals an aging membership, unsustainable financial models, and a critical need for strategic renewal. 
+                This is our pitch for a future-proof club.
+            </p>
+            <a href="#executive-summary" class="inline-block bg-blue-700 text-white font-bold text-lg px-8 py-4 rounded-full hover:bg-blue-800 transition shadow-lg transform hover:-translate-y-1">
+                Review the Data & Plan
+            </a>
+        </div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 -z-10 animate-blob"></div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 pb-24">
+
+        <section id="executive-summary" class="section-padding scroll-mt-16">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4">Executive Summary: The Case for Change</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">A high-level overview of our critical challenges and the strategic pillars for revitalization, based on 2024-25 data.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="stat-card border-red-600">
+                    <h3 class="text-xl font-bold mb-2 text-slate-800">1. The Demographic Cliff</h3>
+                    <p class="text-slate-600 mb-4">Our membership is rapidly aging. The <strong>60+ age group</strong> is our dominant demographic, while younger alumni participation is negligible.</p>
+                    <div class="text-4xl font-black alert-text">67%</div>
+                    <p class="text-sm text-slate-500 font-semibold">Members over 60 years old</p>
+                </div>
+                <div class="stat-card border-orange-500">
+                    <h3 class="text-xl font-bold mb-2 text-slate-800">2. The Financial Drain</h3>
+                    <p class="text-slate-600 mb-4">Key high-volume areas like the **Bar are losing money**. Membership policies for seniors are creating a significant revenue gap.</p>
+                    <div class="text-4xl font-black text-orange-600">-₹7.45 L</div>
+                    <p class="text-sm text-slate-500 font-semibold">Net Loss from Bar Operations</p>
+                </div>
+                <div class="stat-card border-blue-600">
+                    <h3 class="text-xl font-bold mb-2 text-slate-800">3. The Engagement Void</h3>
+                    <p class="text-slate-600 mb-4">A large portion of our member base is inactive. Our activities and facilities are not attracting the next generation.</p>
+                    <div class="text-4xl font-black accent-text">30%</div>
+                    <p class="text-sm text-slate-500 font-semibold">Members with Zero Spend</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="the-crisis" class="section-padding bg-white rounded-3xl shadow-sm p-8 lg:p-16 scroll-mt-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-black mb-6">The "Silver Tsunami": An Aging Membership</h2>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        Our analysis of 1,621 members shows a severe imbalance. The club is effectively a retirement community. The <strong><30 and 31-40 age cohorts are critically underrepresented</strong>, posing an existential threat to the club's mid-to-long-term future.
+                    </p>
+                    <ul class="space-y-4 text-slate-700 font-medium">
+                        <li class="flex items-center"><span class="w-4 h-4 bg-red-600 rounded-full mr-3"></span>The >65 group (882 members) is nearly <strong>9x larger</strong> than the 31-40 group.</li>
+                        <li class="flex items-center"><span class="w-4 h-4 bg-red-600 rounded-full mr-3"></span>Less than <strong>1.5%</strong> of our members are under 30.</li>
+                        <li class="flex items-center"><span class="w-4 h-4 bg-orange-500 rounded-full mr-3"></span>Without intervention, activity and revenue will naturally decline as this base ages further.</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl">
+                    <h4 class="text-lg font-bold text-slate-700 mb-6 text-center">Membership Distribution by Age Group</h4>
+                    <div class="chart-container">
+                        <canvas id="ageChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="financial-reality" class="section-padding scroll-mt-16">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4">The Profitability Paradox</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">We are generating high volumes of gross income in areas like the Bar and Catering, but the net bottom line tells a story of operational failure and subsidization.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-sm p-8 lg:p-16 mb-12">
+                <h3 class="text-2xl font-bold mb-8 text-slate-800">Gross vs. Net Income Analysis (₹ Lakhs)</h3>
+                <div class="chart-container" style="height: 500px;">
+                    <div id="financePlotly"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-red-50 p-8 rounded-2xl border-l-8 border-red-600">
+                    <h4 class="text-2xl font-bold alert-text mb-4">The Bar is a Financial Bleed</h4>
+                    <p class="text-slate-700 text-lg mb-4">
+                        Despite generating a substantial <strong>₹92.13 Lakhs</strong> in gross revenue, the Bar operated at a <strong>Net Loss of ₹7.45 Lakhs</strong>.
+                    </p>
+                    <p class="font-bold text-slate-800">Root Cause (from input):</p>
+                    <ul class="list-disc list-inside text-slate-700 ml-4">
+                        <li>Higher pricing compared to other clubs, deterring patronage.</li>
+                        <li>Limited variety of spirits, reducing appeal.</li>
+                    </ul>
+                    <p class="mt-4 text-red-700 font-bold">Conclusion: The current Bar model is unsustainable and actively hurting club revenues.</p>
+                </div>
+                <div class="bg-blue-50 p-8 rounded-2xl border-l-8 border-blue-600">
+                    <h4 class="text-2xl font-bold accent-text mb-4">Subscriptions Subsidize Losses</h4>
+                    <p class="text-slate-700 text-lg mb-4">
+                        <strong>Subscription Revenue (₹56.55 L Net)</strong> is the club's primary financial anchor. It is currently being used to cover the operational losses of the Bar and the thin margins of Catering.
+                    </p>
+                    <p class="text-slate-700 text-lg">
+                        This dependency masks operational inefficiencies. A healthy club should have multiple profitable revenue streams, not just one.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="structural-flaw" class="section-padding bg-white rounded-3xl shadow-sm p-8 lg:p-16 scroll-mt-16">
+             <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4">Structural Flaws in Membership & Engagement</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">Our membership rules are creating a revenue black hole, and a significant portion of our member base is completely disengaged.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">The "Life Member > 65" Revenue Gap</h3>
+                    <div class="chart-container mb-8" style="height: 350px;">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                    <div class="bg-orange-50 p-6 rounded-xl border-l-4 border-orange-500">
+                        <h4 class="font-bold text-lg text-orange-800 mb-2">The Policy Problem:</h4>
+                        <p class="text-slate-700 mb-4">
+                            Life Members pay no subscription. Critically, **minimum monthly billing ceases at age 65** for both Regular and Life members.
+                        </p>
+                        <p class="font-bold text-slate-800">The Financial Impact:</p>
+                        <p class="text-slate-700">
+                            With over 882 members above 65, a massive portion of our user base has **zero financial obligation** to the club, despite being the heaviest users of certain facilities. This policy is directly hurting revenues and must be reviewed.
+                        </p>
+                        <p class="mt-4 text-sm text-slate-500">Note: Corporate membership is virtually non-existent (only 5), a huge missed opportunity.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">The 30% Inactive Member Problem</h3>
+                    <p class="text-lg text-slate-600 mb-6">
+                        A shocking **30% of our members (481 people) spent zero rupees** in the last billing period. This represents a massive failure to engage a significant segment of our community.
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="spendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding scroll-mt-16">
+             <div class="text-center mb-16">
+                <h2 class="text-4xl font-black mb-4">Activity Silos & Missed Opportunities</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">Our sports revenue is uni-dimensional, and our activities are heavily segregated by age, failing to attract younger members.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-4">Sports Revenue: A One-Horse Race</h3>
+                    <div class="chart-container mb-6" style="height: 300px;">
+                        <canvas id="sportsPie"></canvas>
+                    </div>
+                    <p class="text-slate-700">
+                        **Badminton is the primary driver**, contributing over 36% of sports revenue. Other sports like Tennis generate negligible income.
+                    </p>
+                    <p class="text-sm text-slate-500 mt-2 font-semibold">Input Note: Sports subscriptions are lower than most clubs, contributing to this poor performance outside of badminton.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm">
+                    <h3 class="text-xl font-bold mb-4">Activity Participation by Age (The Divide)</h3>
+                    <div class="chart-container mb-6" style="height: 300px;">
+                        <canvas id="activityStack"></canvas>
+                    </div>
+                    <p class="text-slate-700 mb-2">
+                        **Clear Age Silos:** "Club Activities" like Cards and Bridge are completely dominated by the >65 demographic.
+                    </p>
+                    <p class="text-slate-700 font-bold">
+                        Badminton is the only activity bridging the gap, showing significant participation from younger members (<50). We must build on this.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="recommendations" class="section-padding bg-gradient-to-br from-blue-900 to-slate-900 text-white rounded-3xl shadow-2xl p-8 lg:p-16 scroll-mt-16">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">Strategic Recommendations: A Roadmap for Renewal</h2>
+                <p class="text-xl text-blue-200 max-w-3xl mx-auto">Based on the data analysis and identified structural flaws, we propose the following immediate actions to the Board.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                
+                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-lg border border-white/20">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-3xl mb-6">📜</div>
+                    <h3 class="text-2xl font-bold mb-4">1. Revamp Membership Structure</h3>
+                    <ul class="space-y-4 text-blue-100">
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-2">➤</span>
+                            <span><strong>Review Senior Policies:</strong> The "no minimum bill for >65" rule is financially unsustainable. Introduce a nominal maintenance fee or re-instate a minimum spend to cover basic costs.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-2">➤</span>
+                            <span><strong>Create "Young Alumni" Tier:</strong> Launch an attractive, lower-cost membership tier for under-40s with flexible payment plans to rebuild the demographic pipeline.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-2">➤</span>
+                            <span><strong>Aggressive Corporate Outreach:</strong> Target local businesses for corporate memberships to boost high-margin revenue (currently a missed opportunity with only 5 members).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-lg border border-white/20">
+                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-3xl mb-6">🍸</div>
+                    <h3 class="text-2xl font-bold mb-4">2. Fix the Bar & Dining Model</h3>
+                    <ul class="space-y-4 text-blue-100">
+                        <li class="flex items-start">
+                            <span class="text-red-400 mr-2">➤</span>
+                            <span><strong>Stop the Bleeding:</strong> The Bar's -₹7.45L loss must be reversed. It should be a profit center, not a subsidized service.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-2">➤</span>
+                            <span><strong>Overhaul Pricing & Menu:</strong> Address the "high price / low variety" issue immediately. Introduce a wider range of spirits at competitive price points to increase patronage.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-2">➤</span>
+                            <span><strong>Modernize the Experience:</strong> Revamp the bar's ambiance to appeal to younger members and corporate groups, turning it into a social hub.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-lg border border-white/20">
+                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-3xl mb-6">🎾</div>
+                    <h3 class="text-2xl font-bold mb-4">3. Revitalize Activities & Sports</h3>
+                    <ul class="space-y-4 text-blue-100">
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-2">➤</span>
+                            <span><strong>Review Sports Subscriptions:</strong> Benchmark and adjust sports subscription fees to be competitive with other clubs, increasing revenue from underperforming sports like Tennis.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-2">➤</span>
+                            <span><strong>Invest in "Young-Friendly" Activities:</strong> Capitalize on Badminton's success. Introduce and promote modern, social sports (e.g., high-end gym, social leagues) to attract the <40 demographic.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-400 mr-2">➤</span>
+                            <span><strong>Break Down Silos:</strong> Create events that bridge the gap between senior-dominated activities (Cards) and younger members to foster community.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-lg font-semibold text-white mb-2">Alumni Club Strategic Review</p>
+            <p>Data Sources: 2024-25 Financial, Demographic, and Activity Records.</p>
+            <p class="mt-4 text-sm">Confidential - For Board Review Only.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        // --- UTILITY: Wrap Labels for Chart.js ---
+        const wrapLabel = (str, maxLen = 15) => {
+            if (str.length <= maxLen) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= maxLen) {
+                    currentLine += " " + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        };
+
+        // --- DATA ---
+        const ageData = { labels: ["<30", "31-40", "41-50", "51-60", "61-65", ">65"], data: [24, 98, 128, 287, 202, 882] };
+        const financeData = {
+            depts: ["Bar", "Catering", "Sports", "Chambers", "Subscription"],
+            gross: [92.13, 282.34, 28.92, 29.19, 56.55],
+            net: [-7.45, 12.98, 2.98, 12.25, 56.55]
+        };
+        const categoryData = { labels: ["Corporate", "Life Member", "Regular Member"], data: [5, 556, 1060] };
+        const spendData = {
+            labels: ["0 (Inactive)", "<2.5k", "2.5k-5k", "5k-10k", "10k-25k", "25k-50k", ">50k"],
+            data: [481, 268, 227, 284, 242, 81, 38]
+        };
+        const sportsRevData = {
+            labels: ["Badminton", "Cards/Bridge", "Cricket", "Fitness", "Billiards", "Gym", "Tennis"],
+            data: [10.47, 6.86, 4.52, 3.70, 1.86, 1.14, 0.37]
+        };
+        // Approximate age breakdown for stacked bar based on data analysis
+        const activityStackData = {
+            labels: ["Badminton", "Tennis", "Cards/Bridge"],
+            under50: [10, 4, 1],
+            mid5065: [29, 12, 6],
+            over65: [54, 2, 80]
+        };
+
+        // --- CHARTS ---
+
+        // 1. Age Chart (Bar)
+        new Chart(document.getElementById('ageChart'), {
+            type: 'bar',
+            data: {
+                labels: ageData.labels,
+                datasets: [{
+                    label: 'Members',
+                    data: ageData.data,
+                    backgroundColor: ['#93c5fd', '#60a5fa', '#3b82f6', '#2563eb', '#1d4ed8', '#dc2626'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, grid: { color: '#e2e8f0' } }, x: { grid: { display: false } } }
+            }
+        });
+
+        // 2. Finance Chart (Plotly Grouped Bar)
+        Plotly.newPlot('financePlotly', [
+            { x: financeData.depts, y: financeData.gross, name: 'Gross Income', type: 'bar', marker: { color: '#93c5fd' }, text: financeData.gross.map(v => '₹'+v+'L'), textposition: 'auto' },
+            { x: financeData.depts, y: financeData.net, name: 'Net Income', type: 'bar', marker: { color: financeData.net.map(v => v < 0 ? '#dc2626' : '#16a34a') }, text: financeData.net.map(v => '₹'+v+'L'), textposition: 'auto' }
+        ], {
+            barmode: 'group', margin: { t: 20, b: 40, l: 60, r: 20 },
+            paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
+            legend: { orientation: 'h', y: 1.1 }, font: { family: 'Inter, sans-serif', color: '#475569' },
+            yaxis: { title: '₹ Lakhs', gridcolor: '#e2e8f0' }
+        }, { responsive: true, displayModeBar: false });
+
+        // 3. Category Chart (Doughnut)
+        new Chart(document.getElementById('categoryChart'), {
+            type: 'doughnut',
+            data: {
+                labels: categoryData.labels,
+                datasets: [{
+                    data: categoryData.data,
+                    backgroundColor: ['#f59e0b', '#16a34a', '#2563eb'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } },
+                cutout: '65%'
+            }
+        });
+
+        // 4. Spend Chart (Horizontal Bar)
+        new Chart(document.getElementById('spendChart'), {
+            type: 'bar', indexAxis: 'y',
+            data: {
+                labels: spendData.labels,
+                datasets: [{
+                    label: 'Member Count',
+                    data: spendData.data,
+                    backgroundColor: (ctx) => ctx.dataIndex === 0 ? '#dc2626' : '#3b82f6',
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { x: { beginAtZero: true, grid: { color: '#e2e8f0' } }, y: { grid: { display: false } } }
+            }
+        });
+
+        // 5. Sports Revenue Chart (Pie)
+        new Chart(document.getElementById('sportsPie'), {
+            type: 'pie',
+            data: {
+                labels: sportsRevData.labels,
+                datasets: [{
+                    data: sportsRevData.data,
+                    backgroundColor: ['#2563eb', '#dc2626', '#16a34a', '#f59e0b', '#64748b', '#06b6d4', '#8b5cf6'],
+                    borderWidth: 1, borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'right' } }
+            }
+        });
+
+        // 6. Activity Stack Chart (Stacked Bar)
+        new Chart(document.getElementById('activityStack'), {
+            type: 'bar',
+            data: {
+                labels: activityStackData.labels,
+                datasets: [
+                    { label: '<50 Yrs', data: activityStackData.under50, backgroundColor: '#16a34a' },
+                    { label: '50-65 Yrs', data: activityStackData.mid5065, backgroundColor: '#2563eb' },
+                    { label: '>65 Yrs', data: activityStackData.over65, backgroundColor: '#dc2626' }
+                ]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } },
+                scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true, beginAtZero: true, grid: { color: '#e2e8f0' } } }
+            }
+        });
+    </script>
+</body>
+</html>
+```
