@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Club Strategic Revitalization Plan - Executive Summary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #f3f4f6; }
+        .card-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .chart-container { position: relative; height: 250px; width: 100%; }
+    </style>
+</head>
+<body class="p-8">
+
+    <div class="bg-white p-8 rounded-lg card-shadow mb-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Executive Summary: The Case for Change & The Demographic Crisis</h1>
+        <div class="grid grid-cols-3 gap-8">
+            <div class="col-span-1 space-y-6">
+                <h2 class="text-xl font-bold text-white bg-gray-800 p-3 rounded-t-lg">Key Challenges (2024-25 Data)</h2>
+                <div class="bg-red-50 border-l-8 border-red-500 p-4 rounded-lg card-shadow flex items-center">
+                    <div class="text-4xl text-red-500 mr-4">👴</div>
+                    <div>
+                        <h3 class="font-bold text-lg">1. The Demographic Cliff:</h3>
+                        <p class="text-gray-700 font-medium">67% Members over 60.</p>
+                        <p class="text-gray-600 text-sm"><40 cohorts critically underrepresented.</p>
+                    </div>
+                </div>
+                <div class="bg-orange-50 border-l-8 border-orange-500 p-4 rounded-lg card-shadow flex items-center">
+                    <div class="text-4xl text-orange-500 mr-4">💰</div>
+                    <div>
+                        <h3 class="font-bold text-lg">2. The Financial Drain:</h3>
+                        <p class="text-gray-700 font-medium">-₹7.45 L Net Loss from Bar.</p>
+                        <p class="text-gray-600 text-sm">Pricing & variety issues.</p>
+                    </div>
+                </div>
+                <div class="bg-blue-50 border-l-8 border-blue-500 p-4 rounded-lg card-shadow flex items-center">
+                    <div class="text-4xl text-blue-500 mr-4">🪑</div>
+                    <div>
+                        <h3 class="font-bold text-lg">3. The Engagement Void:</h3>
+                        <p class="text-gray-700 font-medium">30% Members with Zero Spend.</p>
+                        <p class="text-gray-600 text-sm">Inactive base.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-2">
+                <h2 class="text-xl font-bold text-white bg-blue-900 p-3 rounded-t-lg">The 'Silver Tsunami': Aging Membership</h2>
+                <div class="bg-white p-6 rounded-b-lg card-shadow border border-t-0 border-gray-200">
+                    <h3 class="text-center font-bold mb-4">Membership Distribution by Age Group</h3>
+                    <div class="chart-container" style="height: 300px;">
+                        <canvas id="ageDistributionChart"></canvas>
+                    </div>
+                    <p class="text-center text-gray-600 text-sm mt-4 font-medium">Over 882 members >65. <30 group is <1.5%. Existential threat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white p-8 rounded-lg card-shadow mb-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Financial Reality Check & Structural Flaws</h1>
+        <div class="bg-white p-6 rounded-lg card-shadow border border-gray-200 mb-8">
+            <div class="flex justify-between items-center mb-4 relative">
+                <div class="absolute left-0 top-0 bg-red-100 text-red-700 px-2 py-1 rounded text-xs font-bold border border-red-300 shadow-sm z-10" style="transform: translate(40px, -10px);">
+                    Bar Loss are primary<br>and a primary anchor
+                </div>
+                <h2 class="text-xl font-bold text-center w-full">The Profitability Paradox: Gross vs. Net Income (₹ Lakhs)</h2>
+                <div class="absolute right-0 top-0 bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold border border-green-300 shadow-sm z-10" style="transform: translate(-40px, -10px);">
+                    Subscription and sbscription<br>anchors as primary anchor
+                </div>
+            </div>
+            <div class="chart-container" style="height: 350px;">
+                <canvas id="profitabilityParadoxChart"></canvas>
+            </div>
+        </div>
+        <div class="grid grid-cols-2 gap-8">
+            <div>
+                <h2 class="text-xl font-bold text-white bg-blue-900 p-3 rounded-t-lg">Membership Policy Revenue Gap</h2>
+                <div class="bg-white p-6 rounded-b-lg card-shadow border border-t-0 border-gray-200">
+                    <h3 class="text-center font-bold mb-4">Membership Categories</h3>
+                    <div class="chart-container">
+                        <canvas id="membershipCategoriesChart"></canvas>
+                    </div>
+                    <p class="text-center text-gray-600 text-sm mt-4 font-medium">Life have zero financial obligation. Corporate is negligible.</p>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-xl font-bold text-white bg-blue-900 p-3 rounded-t-lg">The Engagement Gap: 30% Inactive</h2>
+                <div class="bg-white p-6 rounded-b-lg card-shadow border border-t-0 border-gray-200">
+                    <h3 class="text-center font-bold mb-4">Member Spend Tiers (Member Count)</h3>
+                    <div class="chart-container" style="height: 300px;">
+                        <canvas id="memberSpendTiersChart"></canvas>
+                    </div>
+                    <p class="text-center text-gray-600 text-sm mt-4 font-medium">481 members spent zero. Massive failure to engage.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white p-8 rounded-lg card-shadow mb-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Strategic Recommendations: A Roadmap for Renewal</h1>
+        <div class="grid grid-cols-3 gap-6">
+            <div class="bg-blue-900 p-6 rounded-lg card-shadow text-white">
+                <div class="flex justify-center mb-4">
+                    <div class="bg-white rounded-full p-3">
+                        <span class="text-blue-900 text-4xl">📜</span>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold text-center mb-4">1. Revamp Membership Structure</h3>
+                <ul class="list-disc list-outside ml-6 space-y-3 text-sm font-medium">
+                    <li>Review Senior Policies: Introduce nominal maintenance fee for >65.</li>
+                    <li>Create "Young Alumni" Tier: Lower cost, flexible plans for under-40s.</li>
+                    <li>Aggressive Corporate Outreach: Target local businesses for high-margin memberships.</li>
+                </ul>
+            </div>
+            <div class="bg-gradient-to-br from-red-700 to-blue-900 p-6 rounded-lg card-shadow text-white">
+                <div class="flex justify-center mb-4">
+                    <div class="bg-white rounded-full p-3">
+                        <span class="text-red-700 text-4xl">🍸</span>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold text-center mb-4">2. Fix the Bar & Dining Model</h3>
+                <ul class="list-disc list-outside ml-6 space-y-3 text-sm font-medium">
+                    <li>Stop the Bleeding: Reverse the -₹7.45L loss.</li>
+                    <li>Overhaul Pricing & Menu: Address "high price / low variety" to boost patronage.</li>
+                    <li>Modernize the Experience: Revamp ambiance for younger & corporate appeal.</li>
+                </ul>
+            </div>
+            <div class="bg-gradient-to-br from-green-700 to-blue-900 p-6 rounded-lg card-shadow text-white">
+                <div class="flex justify-center mb-4">
+                    <div class="bg-white rounded-full p-3">
+                        <span class="text-green-700 text-4xl">🎾</span>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold text-center mb-4">3. Revitalize Activities & Sports</h3>
+                <ul class="list-disc list-outside ml-6 space-y-3 text-sm font-medium">
+                    <li>Review Sports Subscriptions: Adjust fees to be competitive.</li>
+                    <li>Invest in "Young-Friendly" Activities: Capitalize on Badminton, introduce social sports.</li>
+                    <li>Break Down Silos: Create cross-generational events.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center text-gray-500 text-sm">
+        Confidential - For Board Review Only | Data Sources: 2024-25 Financial, Demographic, & Activity Records.
+    </div>
+
+    <script>
+        Chart.register(ChartDataLabels);
+        Chart.defaults.font.family = 'Roboto';
+        Chart.defaults.color = '#4b5563';
+
+        // Chart 1: Membership Distribution by Age Group
+        new Chart(document.getElementById('ageDistributionChart'), {
+            type: 'bar',
+            data: {
+                labels: ['<30', '31-40', '41-50', '51-60', '61-65', '>65'],
+                datasets: [{
+                    data: [24, 98, 128, 287, 202, 882],
+                    backgroundColor: ['#3b82f6', '#3b82f6', '#3b82f6', '#3b82f6', '#3b82f6', '#b91c1c'],
+                    borderRadius: 4,
+                    barPercentage: 0.7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    datalabels: {
+                        color: '#fff',
+                        anchor: 'end',
+                        align: 'top',
+                        offset: -5,
+                        font: { weight: 'bold' },
+                        formatter: (value, context) => {
+                            return context.dataIndex === 5 ? value : '';
+                        },
+                        color: '#b91c1c'
+                    }
+                },
+                scales: {
+                    y: { beginAtZero: true, grid: { display: false } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // Chart 2 & 3: The Profitability Paradox
+        const financeData = {
+            labels: ['Bar', 'Catering', 'Sports', 'Chambers', 'Subscription'],
+            gross: [92.13, 282.34, 28.92, 29.19, 56.55],
+            net: [-7.45, 12.98, 2.98, 12.25, 56.55]
+        };
+        const createFinanceChart = (canvasId) => new Chart(document.getElementById(canvasId), {
+            type: 'bar',
+            data: {
+                labels: financeData.labels,
+                datasets: [
+                    {
+                        label: 'Gross Income',
+                        data: financeData.gross,
+                        backgroundColor: '#3b82f6',
+                        borderRadius: 4,
+                        barPercentage: 0.8,
+                        categoryPercentage: 0.7
+                    },
+                    {
+                        label: 'Net Income',
+                        data: financeData.net,
+                        backgroundColor: financeData.net.map(v => v < 0 ? '#b91c1c' : '#22c55e'),
+                        borderRadius: 4,
+                        barPercentage: 0.8,
+                        categoryPercentage: 0.7
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    datalabels: {
+                        color: '#4b5563',
+                        anchor: 'end',
+                        align: 'top',
+                        offset: 0,
+                        font: { weight: 'bold', size: 11 },
+                        formatter: (value) => value.toFixed(2)
+                    }
+                },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: '#e5e7eb' } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+        createFinanceChart('profitabilityParadoxChart');
+
+        // Chart 4: Membership Categories
+        new Chart(document.getElementById('membershipCategoriesChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Regular Member (1060)', 'Life Member (556)', 'Corporate (5)'],
+                datasets: [{
+                    data: [1060, 556, 5],
+                    backgroundColor: ['#3b82f6', '#22c55e', '#f59e0b'],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'right' },
+                    datalabels: { display: false }
+                },
+                cutout: '60%'
+            }
+        });
+
+        // Chart 5: Member Spend Tiers
+        new Chart(document.getElementById('memberSpendTiersChart'), {
+            type: 'bar',
+            indexAxis: 'y',
+            data: {
+                labels: ['0 (Inactive)', '<2.5k', '2.5k-5k', '5k-10k', '10k-25k', '25k-50k', '>50k'],
+                datasets: [{
+                    label: 'Member Count',
+                    data: [481, 268, 227, 284, 242, 81, 38],
+                    backgroundColor: ['#b91c1c', '#3b82f6', '#3b82f6', '#3b82f6', '#3b82f6', '#3b82f6', '#3b82f6'],
+                    borderRadius: 4,
+                    barPercentage: 0.7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    datalabels: {
+                        color: '#4b5563',
+                        anchor: 'end',
+                        align: 'right',
+                        offset: 5,
+                        font: { weight: 'bold' }
+                    }
+                },
+                scales: {
+                    x: { beginAtZero: true, grid: { display: false } },
+                    y: { grid: { display: false } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
